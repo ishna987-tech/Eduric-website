@@ -2,20 +2,19 @@
 <html lang="en"><head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Contact | Eduric</title>
-<meta name="description" content="Contact Eduric to design your first production agentic workflow—securely, measurably, and at scale."/>
+<meta name="description" content="Contact Eduric for agentic AI consulting and products in Healthcare, Life Sciences, Hi‑Tech, and Manufacturing."/>
 <link rel="icon" href="assets/img/eduric-logo.png"/>
 <link rel="stylesheet" href="assets/css/style.css"/>
-<meta name="description" content="Contact Eduric to design your first production agentic workflow—securely, measurably, and at scale."/>
 <link rel="canonical" href="https://eduric.com/contact.html"/>
 <meta property="og:site_name" content="Eduric"/>
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Contact | Eduric"/>
-<meta property="og:description" content="Contact Eduric to design your first production agentic workflow—securely, measurably, and at scale."/>
+<meta property="og:description" content="Contact Eduric for agentic AI consulting and products in Healthcare, Life Sciences, Hi‑Tech, and Manufacturing."/>
 <meta property="og:url" content="https://eduric.com/contact.html"/>
 <meta property="og:image" content="https://eduric.com/assets/img/eduric-logo.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Contact | Eduric"/>
-<meta name="twitter:description" content="Contact Eduric to design your first production agentic workflow—securely, measurably, and at scale."/>
+<meta name="twitter:description" content="Contact Eduric for agentic AI consulting and products in Healthcare, Life Sciences, Hi‑Tech, and Manufacturing."/>
 <meta name="twitter:image" content="https://eduric.com/assets/img/eduric-logo.png"/>
 <script type="application/ld+json">
 {
@@ -43,51 +42,65 @@
 <a class="btn primary" href="contact.html"><svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M5 12h12' stroke='currentColor' stroke-width='2' stroke-linecap='round'/><path d='M13 6l6 6-6 6' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg> Talk to Eduric</a>
 </div></div></header>
 
-<section class="section"><div class="container">
-<div class="kicker">Contact</div><h1 class="h1">Talk to Eduric</h1>
-<p class="p">Tell us what you’re trying to automate, where it lives (systems/data), and what “safe success” looks like. We’ll respond quickly.</p>
-<div class="split" style="margin-top:16px;">
-<div class="card"><div class="h3">Email</div><p class="p"><a href="mailto:info@eduric.com"><b>info@eduric.com</b></a></p>
-<div class="hr"></div><div class="h3">What to include</div>
-<ul><li>Industry and business function</li><li>Target workflow and pain points</li><li>Systems involved (ERP/CRM/EHR/QMS/PLM/MES/LIMS)</li><li>Constraints (PHI/GxP, security, hosting, vendors)</li><li>Timeline and success metrics</li></ul></div>
+<main class="section"><div class="container">
+  <div class="kicker">Contact</div>
+  <h1 class="h1">Start with a simple conversation.</h1>
+  <p class="p">Tell us your domain, workflow, and target KPI. We’ll respond quickly with a pragmatic next step.</p>
 
-<div class="card"><div class="h3">Send a message</div>
-<form class="form" data-contact-form>
-<div class="grid-2">
-  <div><label>Name</label><input class="input" name="name" placeholder="Your name" required/></div>
-  <div><label>Work email</label><input class="input" type="email" name="email" placeholder="name@company.com" required/></div>
-</div>
-<div class="grid-2">
-  <div><label>Company (optional)</label><input class="input" name="company" placeholder="Company"/></div>
-  <div><label>Subject</label><input class="input" name="subject" placeholder="e.g., Agentic workflow for claims & appeals" required/></div>
-</div>
-<div><label>Message</label><textarea name="message" placeholder="Workflow, systems, constraints (PHI/GxP), timeline, success metrics." required></textarea></div>
+  <div class="grid-2" style="margin-top:16px">
+    <div class="card" style="padding:18px">
+      <div class="h3">Email</div>
+      <p class="p"><a href="mailto:info@eduric.com">info@eduric.com</a></p>
+      <div class="h3" style="margin-top:14px">What to include</div>
+      <ul class="list-tight">
+        <li>Industry (provider/payer/lab, med device, pharma, hi‑tech, manufacturing)</li>
+        <li>Workflow and current pain points</li>
+        <li>Constraints: data, compliance, timelines</li>
+      </ul>
+    </div>
 
-<div style="display:none">
-  <label>Do not fill</label>
-  <input class="input" name="hp" tabindex="-1" autocomplete="off"/>
-</div>
-
-<button class="btn primary" type="submit">{ICONS["arrow"]} Send</button>
-<div id="formStatus" class="note">This form submits to a Cloudflare Pages Function. If it fails, email <a href="mailto:info@eduric.com"><b>info@eduric.com</b></a>.</div>
-</form>
-</div>
-</section>
+    <div class="card" style="padding:18px">
+      <div class="h3">Contact form</div>
+      <form data-contact-form>
+        <div class="grid-2">
+          <label class="field">Name<input name="name" required/></label>
+          <label class="field">Company<input name="company"/></label>
+        </div>
+        <label class="field">Email<input type="email" name="email" required/></label>
+        <label class="field">Subject<input name="subject" placeholder="e.g., Denials & appeals agent"/></label>
+        <label class="field">Message<textarea name="message" rows="5" required placeholder="Describe your workflow, tools, data constraints, and KPI…"></textarea></label>
+        <input class="hp" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+        <div class="cta" style="justify-content:flex-start">
+          <button class="btn primary" type="submit">Send</button>
+          <div id="formStatus" class="small" aria-live="polite"></div>
+        </div>
+        <div class="small" style="margin-top:8px;opacity:.85">This site is static. If direct submission is unavailable, we’ll open an email to <b>info@eduric.com</b> with your message.</div>
+      </form>
+    </div>
+  </div>
+</div></main>
 
 <footer class="footer"><div class="container footer-grid">
 <div>
-<div class="h3" style="margin:0 0 8px">Eduric</div>
-<p class="p">We help Healthcare, Life Sciences, Hi‑Tech and Manufacturing organizations move from GenAI pilots to <b>trusted, production agentic workflows</b>—with governance, evaluation, and security designed in.</p>
-<div class="hr"></div><div class="small">© 2025 Eduric. All rights reserved.</div>
+<div class="h3">Eduric</div>
+<p class="p">We design, build, and operationalize agentic AI for regulated and mission‑critical enterprises—secure, governed, and measurable.</p>
+<div class="small">Contact: <a href="mailto:info@eduric.com">info@eduric.com</a></div>
 </div>
 <div>
-<div class="card"><div class="h3">Contact</div>
-<p class="p">Email: <a href="mailto:info@eduric.com"><b>info@eduric.com</b></a></p>
-<p class="small" style="margin-top:10px;">For regulated programs, we can align to your governance model, vendor risk, and security requirements (SOC2, HIPAA, GxP, ISO/IEC 42001, and internal controls).</p>
+<div class="h3">Company</div>
+<ul>
+<li><a href="about.html">About</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="industries.html">Industries</a></li>
+<li><a href="insights.html">Insights</a></li>
+<li><a href="privacy.html">Privacy</a></li>
+</ul>
 </div>
-<div class="small" style="margin-top:12px;"><a href="privacy.html">Privacy</a> · <a href="insights.html">Reading list</a></div>
-</div></div></footer>
-<script src="assets/js/config.js"></script>
-<script src="assets/js/config.js"></script>
+<div>
+<div class="h3">Notes</div>
+<p class="small">Eduric is not affiliated with any third‑party brands referenced on this site. Stock photography used under the Unsplash License.</p>
+<p class="small">© 2025 Eduric. All rights reserved.</p>
+</div>
+</div></footer>
 <script src="assets/js/main.js"></script>
 </body></html>
