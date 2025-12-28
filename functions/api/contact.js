@@ -1,6 +1,7 @@
 export async function onRequestPost(context) {
   try {
-    const data = await context.request.json();
+    const { request, env } = context;
+    const data = await request.json();
 
     // Honeypot spam trap
     if (data && data.hp) return new Response("ok", { status: 200 });
@@ -15,16 +16,16 @@ export async function onRequestPost(context) {
       return new Response("Missing fields", { status: 400 });
     }
 
-    // Send via MailChannels (Cloudflare-compatible)
-    // NOTE: Deliverability may be limited until you use a verified sender with SPF/DKIM.
-    const payload = {
-      personalizations: [{ to: [{ email: "info@eduric.com", name: "Eduric" }] }],
-      from: { email: "noreply@eduric.com", name: "Eduric Website" },
-      reply_to: { email, name: name || email },
-      subject: `[Eduric.com] ${subject}`,
-      content: [{
-        type: "text/plain",
-        value:
+    const apiKey = env.RESEND_API_KEY;
+    if (!apiKey) {
+      return new Response("Server not configured: missing RESEND_API_KEY", { status: 500 });
+    }
+
+    const to = env.CONTACT_TO || "info@eduric.com";
+    const from = env.CONTACT_FROM || "contact@eduric.com"; // must be verified in Resend
+    const replyTo = email;
+
+    const text =
 `New message from Eduric.com
 
 Name: ${name}
@@ -33,19 +34,29 @@ Company: ${company}
 
 Message:
 ${message}
-`
-      }]
+`;
+
+    const payload = {
+      from,
+      to: [to],
+      reply_to: replyTo,
+      subject: `[Eduric.com] ${subject}`,
+      text
     };
 
-    const resp = await fetch("https://api.mailchannels.net/tx/v1/send", {
+    const resp = await fetch("https://api.resend.com/emails", {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(payload)
     });
 
+    const body = await resp.text();
     if (!resp.ok) {
-      const txt = await resp.text();
-      return new Response(`Email send failed: ${txt}`, { status: 502 });
+      // Return provider error to help debug quickly
+      return new Response(`Resend error (${resp.status}): ${body}`, { status: 502 });
     }
 
     return new Response("ok", { status: 200 });
