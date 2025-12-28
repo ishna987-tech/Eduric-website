@@ -16,6 +16,7 @@
       subject: form.querySelector("[name=subject]")?.value || "",
       message: form.querySelector("[name=message]")?.value || "",
       hp: form.querySelector("[name=hp]")?.value || ""
+    website: (document.getElementById('website')?.value || '').trim(),
     };
 
     try {
